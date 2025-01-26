@@ -1,0 +1,18 @@
+<h1>Tasks List</h1>
+<ul>
+  {% for task in tasks %}
+  <li>
+    {{task.title}} - {% if task.completed %}
+    <span>Completed</span>
+    {% else%}
+    <span>Not Completed</span>
+    {% endif %}
+  </li>
+
+  <!-- Update button -->
+  <a href="{% url 'update_task' task.id %}">Toggle Complete</a>
+
+  <!-- Delete Button -->
+  <a href="{% url 'delete_task' task.id %}">Delete</a>
+  {% endfor %}
+</ul>
